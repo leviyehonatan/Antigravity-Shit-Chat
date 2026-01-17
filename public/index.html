@@ -206,7 +206,29 @@
                     const styleData = await styleRes.json();
                     document.getElementById('cascade-style').textContent = `
                         ${styleData.css}
-                        #cascade { background: transparent !important; color: white; }
+                        #cascade { 
+                            background: transparent !important; 
+                            color: white !important; 
+                        }
+                        #cascade .prose {
+                            --tw-prose-body: #e5e7eb !important;
+                            --tw-prose-headings: #f3f4f6 !important;
+                            --tw-prose-lead: #e5e7eb !important;
+                            --tw-prose-links: #60a5fa !important;
+                            --tw-prose-bold: #f3f4f6 !important;
+                            --tw-prose-counters: #9ca3af !important;
+                            --tw-prose-bullets: #d1d5db !important;
+                            --tw-prose-hr: #374151 !important;
+                            --tw-prose-quotes: #f3f4f6 !important;
+                            --tw-prose-quote-borders: #374151 !important;
+                            --tw-prose-captions: #9ca3af !important;
+                            --tw-prose-code: #f3f4f6 !important;
+                            --tw-prose-pre-code: #e5e7eb !important;
+                            --tw-prose-pre-bg: #1f2937 !important;
+                            --tw-prose-th-borders: #374151 !important;
+                            --tw-prose-td-borders: #374151 !important;
+                            color: #e5e7eb !important; /* Force color explicitly too */
+                        }
                         /* Ensure code blocks are readable */
                         pre, code { background: #111 !important; color: #ddd !important; }
                     `;

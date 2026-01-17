@@ -369,14 +369,6 @@ async function main() {
         else res.status(500).json(result);
     });
 
-    // Alias for active
-    app.post('/send', async (req, res) => {
-        const active = Array.from(cascades.values()).find(c => c.metadata.isActive) || cascades.values().next().value;
-        if (!active) return res.status(404).json({ error: 'No active cascade' });
-        const result = await injectMessage(active.cdp, req.body.message);
-        if (result.ok) res.json({ success: true });
-        else res.status(500).json(result);
-    });
 
     wss.on('connection', (ws) => {
         broadcastCascadeList(); // Send list on connect
